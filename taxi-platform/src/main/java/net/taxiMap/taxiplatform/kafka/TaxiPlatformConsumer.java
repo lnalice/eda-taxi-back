@@ -10,18 +10,6 @@ import org.springframework.stereotype.Service;
 public class TaxiPlatformConsumer {
     private static final Logger LOGGER = LoggerFactory.getLogger(TaxiPlatformConsumer.class);
 
-//    private RideProducer rideProducer;
-//
-//    public TaxiPlatformConsumer(RideProducer rideProducer){
-//        this.rideProducer = rideProducer;
-//    }
-//
-//    private CallResponseProducer callResponseProducer;
-//
-////    public TaxiPlatformConsumer(CallResponseProducer callResponseProducer){
-////        this.callResponseProducer = callResponseProducer;
-////    }
-
     @KafkaListener(
             topics = "${spring.kafka.topic.name.taxiLocation}"
             , groupId = "${spring.kafka.consumer.group-id}"
@@ -31,52 +19,6 @@ public class TaxiPlatformConsumer {
         //show taxiMap : Taxi real-time Location + Driver status
         //Update taxi real-time taxi information (DB)
     }
-
-
-//    @KafkaListener(
-//            topics = "${spring.kafka.topic.name.call}"
-//            , groupId = "${spring.kafka.consumer.group-id}"
-//    )
-//    public void consumeCallEvent(CallEvent event) {
-//        LOGGER.info(String.format("[[ Call Event - received ]] %s", event.toString()));
-//        //[*] Produce Ride Event (-> driver-service)
-//        String nearestDriverID = "000000";
-//
-//        RideEvent rideEvent = new RideEvent(
-//                event.getCurrentTime(),
-//                nearestDriverID,
-//                event.getUser()
-//        );
-//
-//        rideProducer.sendRideMessage(rideEvent);
-//
-//        LOGGER.info(String.format("[[ Ride Event - sent ]] %s", rideEvent));
-//
-//        //Show TaxiMap : User call a cap now!
-//    }
-
-
-//    @KafkaListener(
-//            topics = "${spring.kafka.topic.name.rideResponse}"
-//            , groupId = "${spring.kafka.consumer.group-id}"
-//    )
-//    public void consumeRideResponseEvent(RideResponseEvent event) {
-//        LOGGER.info(String.format("[[ RideResponse event - received ]] %s", event.toString()));
-//        //[*] Produce CallResponse Event (-> user-service)
-//
-//        CallResponseEvent callResponseEvent = new CallResponseEvent(
-//                event.getCurrentTime(),
-//                event.getDriver(),
-//                event.getUser()
-//        );
-//
-//        callResponseProducer.sendCallResponseMessage(callResponseEvent);
-//
-//        LOGGER.info(String.format("[[ CallResponse Event - sent ]] %s", callResponseEvent));
-//
-//        //Show TaxiMap : Taxi is going to the user to pick up!
-//        //Update Taxi Status in DB [R]
-//    }
 
 
     @KafkaListener(
