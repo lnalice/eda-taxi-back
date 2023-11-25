@@ -6,7 +6,9 @@ import net.taxiMap.taxiplatform.kafka.RideProducer;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
 
+@Service
 public class RideMessager {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CallResponseMessager.class);
@@ -33,7 +35,7 @@ public class RideMessager {
 
         rideProducer.sendRideMessage(rideEvent);
 
-        LOGGER.info(String.format("[[ Ride Event - sent ]] %s", rideEvent));
+        LOGGER.info(String.format("[[ Ride event - sent]] %s", rideEvent));
 
         //Show TaxiMap : User call a cap now!
     }

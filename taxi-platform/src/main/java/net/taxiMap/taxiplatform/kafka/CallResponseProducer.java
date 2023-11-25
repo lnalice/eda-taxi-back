@@ -2,8 +2,6 @@ package net.taxiMap.taxiplatform.kafka;
 
 import net.taxiMap.basedomain.dto.event.CallResponseEvent;
 import org.apache.kafka.clients.admin.NewTopic;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.KafkaHeaders;
@@ -13,8 +11,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class CallResponseProducer {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(RideProducer.class);
 
     private NewTopic topic;
 
@@ -26,7 +22,6 @@ public class CallResponseProducer {
     }
 
     public void sendCallResponseMessage(CallResponseEvent event) {
-        LOGGER.info(String.format("Ride event => %s", event.toString()));
 
         Message<CallResponseEvent> message = MessageBuilder
                 .withPayload(event)

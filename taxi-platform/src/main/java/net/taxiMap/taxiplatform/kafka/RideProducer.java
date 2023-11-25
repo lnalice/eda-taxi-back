@@ -26,7 +26,6 @@ public class RideProducer {
     }
 
     public void sendRideMessage(RideEvent event) {
-        LOGGER.info(String.format("Ride event => %s", event.toString()));
 
         Message<RideEvent> message = MessageBuilder
                 .withPayload(event)
