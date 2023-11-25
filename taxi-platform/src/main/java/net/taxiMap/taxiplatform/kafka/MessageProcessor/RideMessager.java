@@ -1,5 +1,7 @@
 package net.taxiMap.taxiplatform.kafka.MessageProcessor;
 
+import net.taxiMap.basedomain.dto.Driver;
+import net.taxiMap.basedomain.dto.Location;
 import net.taxiMap.basedomain.dto.event.CallEvent;
 import net.taxiMap.basedomain.dto.event.RideEvent;
 import net.taxiMap.taxiplatform.kafka.RideProducer;
@@ -25,17 +27,20 @@ public class RideMessager {
     public void consumeCallEvent(CallEvent event) {
         LOGGER.info(String.format("[[ Call Event - received ]] %s", event.toString()));
         //[*] Produce Ride Event (-> driver-service)
-        String nearestDriverID = "000000";
+
+        //tmp sample data
+        Location currentLocation = new Location(123.12, 123.12);
+        Driver nearestDriver = new Driver("000000", currentLocation, 'A');
 
         RideEvent rideEvent = new RideEvent(
                 event.getCurrentTime(),
-                nearestDriverID,
+                nearestDriver,
                 event.getUser()
         );
 
         rideProducer.sendRideMessage(rideEvent);
 
-        LOGGER.info(String.format("[[ Ride event - sent]] %s", rideEvent));
+        LOGGER.info(String.format("[[ Ride event - sent ]] %s", rideEvent));
 
         //Show TaxiMap : User call a cap now!
     }
