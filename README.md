@@ -7,8 +7,7 @@ This page contains only a general overview of the project and how to execute it.
 You can see three microservices communicate with the Kafka cluster. They produce and consume events automatically.
 All events are related to the taxi service.
 
-![taxiArchitecture](https://nayoung-lee.s3.ap-northeast-2.amazonaws.com/taxi/%ED%83%9D%EC%8B%9C%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98_%EA%B0%80%EB%A1%9C3_%EC%B5%9C%EC%B5%9C%EC%B5%9C%EC%A2%85.png)
-
+![taxiArchitecture](https://github.com/lnalice/eda-taxi-back/assets/80760544/89872e95-7c98-4b82-ba84-b38c2af7070f)
 
 ## Getting Started
 These microservices are decoupled, communicating with Kafka as an event broker. You'll need Kafka and Zookeeper installed on your computer.
@@ -33,7 +32,7 @@ kafka@v2.13-2.8.0. or higher
 ## Event Topics
 All microservices produce and consume events. In particular, driver microservice can generate events that periodically announce their location at specific times.
 
-![taxiEvent](https://nayoung-lee.s3.ap-northeast-2.amazonaws.com/taxi/%ED%83%9D%EC%8B%9C.png)
+![taxiEvent](https://github.com/lnalice/eda-taxi-back/assets/80760544/dea91106-1393-40ca-af71-0b08b666585a)
  
 ## How To Use
 If you are ready, run Zookeeper and Kafka before running each microservices. The commands depend on the OS.
