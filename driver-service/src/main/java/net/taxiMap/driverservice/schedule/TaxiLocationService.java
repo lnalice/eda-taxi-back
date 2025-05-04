@@ -28,8 +28,7 @@ public class TaxiLocationService {
 
     @Scheduled(fixedDelay = 5000)
     public void placeTaxiLocation() throws IOException {
-        System.out.println("✅ 스케줄러 실행됨");
-//        try {
+        try {
             ClassPathResource resource = new ClassPathResource("/data/driver/driver.json");
             byte[] byteData = FileCopyUtils.copyToByteArray(resource.getInputStream());
             String data = new String(byteData, StandardCharsets.UTF_8);
@@ -52,40 +51,40 @@ public class TaxiLocationService {
                     System.out.println("Error sending taxi location event");
                 }
             }
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-    }
-
-        private static Driver extractDriver(JsonObject jsonObject) {
-            Driver driver = new Driver();
-
-            driver.setDriverID(jsonObject.get("driverID").getAsString());
-
-            JsonObject locationObject = jsonObject.getAsJsonObject("currentLocation");
-            Location location = new Location();
-            location.setLatitude(locationObject.get("latitude").getAsDouble());
-            location.setLongitude(locationObject.get("longitude").getAsDouble());
-            driver.setCurrentLocation(location);
-
-            driver.setStatus(jsonObject.get("status").getAsString().charAt(0));
-
-            return driver;
-        }
-
-        private void logDriverInfo(JsonObject driverObject){
-            String driverID = driverObject.get("driverID").getAsString();
-            JsonObject currentLocation = driverObject.getAsJsonObject("currentLocation");
-            double latitude = currentLocation.get("latitude").getAsDouble();
-            double longitude = currentLocation.get("longitude").getAsDouble();
-            int pathID = driverObject.get("pathID").getAsInt();
-            String status = driverObject.get("status").getAsString();
-
-            // 로그로 출력
-            System.out.println("DriverID: " + driverID +
-                    ", Latitude: " + latitude +
-                    ", Longitude: " + longitude +
-                    ", PathID: " + pathID +
-                    ", Status: " + status);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
+
+    private static Driver extractDriver(JsonObject jsonObject) {
+        Driver driver = new Driver();
+
+        driver.setDriverID(jsonObject.get("driverID").getAsString());
+
+        JsonObject locationObject = jsonObject.getAsJsonObject("currentLocation");
+        Location location = new Location();
+        location.setLatitude(locationObject.get("latitude").getAsDouble());
+        location.setLongitude(locationObject.get("longitude").getAsDouble());
+        driver.setCurrentLocation(location);
+
+        driver.setStatus(jsonObject.get("status").getAsString().charAt(0));
+
+        return driver;
+    }
+
+    private void logDriverInfo(JsonObject driverObject){
+        String driverID = driverObject.get("driverID").getAsString();
+        JsonObject currentLocation = driverObject.getAsJsonObject("currentLocation");
+        double latitude = currentLocation.get("latitude").getAsDouble();
+        double longitude = currentLocation.get("longitude").getAsDouble();
+        int pathID = driverObject.get("pathID").getAsInt();
+        String status = driverObject.get("status").getAsString();
+
+        // 로그로 출력
+        System.out.println("DriverID: " + driverID +
+                ", Latitude: " + latitude +
+                ", Longitude: " + longitude +
+                ", PathID: " + pathID +
+                ", Status: " + status);
+    }
+}
