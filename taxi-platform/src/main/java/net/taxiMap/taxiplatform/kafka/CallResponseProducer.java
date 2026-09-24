@@ -12,9 +12,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class CallResponseProducer {
 
-    private NewTopic topic;
-
-    private KafkaTemplate<String, CallResponseEvent> callResponseTemplate;
+    private final NewTopic topic;
+    private final KafkaTemplate<String, CallResponseEvent> callResponseTemplate;
 
     public CallResponseProducer(@Qualifier("topicCallResponse") NewTopic topic, KafkaTemplate<String, CallResponseEvent> callResponseTemplate) {
         this.topic = topic;

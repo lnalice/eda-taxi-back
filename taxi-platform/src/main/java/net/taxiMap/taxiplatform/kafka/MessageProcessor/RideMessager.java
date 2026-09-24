@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class RideMessager {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(CallResponseMessager.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(RideMessager.class);
     private final RideProducer rideProducer;
 
     public RideMessager(RideProducer rideProducer){

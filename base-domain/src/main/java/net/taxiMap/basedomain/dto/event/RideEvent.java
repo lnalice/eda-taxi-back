@@ -13,6 +13,6 @@ import java.time.LocalTime;
 @NoArgsConstructor
 public class RideEvent {
     private LocalTime currentTime;
-    private Driver Driver;
+    private Driver driver;
     private User user;
 }
