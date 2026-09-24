@@ -1,9 +1,7 @@
 package net.taxiMap.driverservice.kafka.controller;
 
 import net.taxiMap.basedomain.dto.Driver;
-import net.taxiMap.basedomain.dto.event.PickUpEvent;
 import net.taxiMap.basedomain.dto.event.TaxiLocationEvent;
-import net.taxiMap.driverservice.kafka.producer.PickUpProducer;
 import net.taxiMap.driverservice.kafka.producer.TaxiLocationProducer;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

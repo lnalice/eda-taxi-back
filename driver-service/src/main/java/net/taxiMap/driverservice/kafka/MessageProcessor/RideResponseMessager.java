@@ -1,7 +1,5 @@
 package net.taxiMap.driverservice.kafka.MessageProcessor;
 
-import net.taxiMap.basedomain.dto.Location;
-import net.taxiMap.basedomain.dto.event.CallResponseEvent;
 import net.taxiMap.basedomain.dto.event.RideEvent;
 import net.taxiMap.basedomain.dto.event.RideResponseEvent;
 import net.taxiMap.driverservice.kafka.producer.RideResponseProducer;

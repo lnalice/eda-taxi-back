@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import net.taxiMap.basedomain.dto.Driver;
-import net.taxiMap.basedomain.dto.Location;
 import net.taxiMap.basedomain.dto.User;
 
 import java.time.LocalTime;

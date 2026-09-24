@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalTime;
-import java.util.UUID;
 
 //for dealing with order from client
 @RestController
@@ -17,7 +16,7 @@ import java.util.UUID;
 
 public class UserController {
 
-    private UserProducer userProducer;
+    private final UserProducer userProducer;
 
     public UserController(UserProducer userProducer) {
         this.userProducer = userProducer;

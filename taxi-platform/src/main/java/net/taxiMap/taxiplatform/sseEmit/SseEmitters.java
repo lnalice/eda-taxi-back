@@ -1,4 +1,4 @@
-package net.taxiMap.taxiplatform.kafka;
+package net.taxiMap.taxiplatform.sseEmit;
 
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
@@ -17,7 +17,7 @@ public class SseEmitters {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SseEmitters.class);
 
-    SseEmitter add(SseEmitter emitter) {
+    public SseEmitter add(SseEmitter emitter) {
 
         this.emitters.add(emitter);
 
