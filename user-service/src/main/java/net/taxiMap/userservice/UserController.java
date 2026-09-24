@@ -35,4 +35,3 @@ public class UserController {
         return "Call Event generated";
     }
 }
-

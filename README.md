@@ -40,7 +40,7 @@ If you are ready, run Zookeeper and Kafka before running each microservices. The
 ### 1. Run Zookeeper
 ```bash
 # 1. Window OS
-./bin/zookeeper-server-start.sh ./config/zookeeper.properties
+.\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties
 
 # 2. Mac OS
 ./bin/zookeeper-server-start.sh ./config/zookeeper.properties

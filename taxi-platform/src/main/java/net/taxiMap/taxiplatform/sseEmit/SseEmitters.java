@@ -1,4 +1,4 @@
-package net.taxiMap.taxiplatform.kafka;
+package net.taxiMap.taxiplatform.sseEmit;
 
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
